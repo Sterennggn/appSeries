@@ -33,13 +33,7 @@ cd films
 const OMDB_API_KEY = 'be69aad';
 ```
 
-3. Lancez un serveur local dans le dossier `public`. Par exemple avec Python :
-```bash
-# Python 3
-python -m http.server 8000
-```
-
-4. Ouvrez votre navigateur et accédez à :
+3. Ouvrez votre navigateur et accédez à :
 ```
 http://localhost:8000
 ```
