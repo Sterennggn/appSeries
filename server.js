@@ -53,5 +53,5 @@ app.get('/api/search', async (req, res) => {
 
 // Démarrer le serveur
 app.listen(PORT, () => {
-    console.log(`Serveur démarré sur http://localhost:${PORT}`);
+    console.log(`Serveur démarré sur http://localhost:3000`);
 }); 
