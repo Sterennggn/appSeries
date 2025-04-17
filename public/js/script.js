@@ -50,7 +50,7 @@ async function searchSeries() {
     }
 
     try {
-        const data = await fetchJSON(`https://www.omdbapi.com/?apikey=${OMDB_API_KEY}&s=${encodeURIComponent(query)}&type=series`);
+        const data = await fetchJSON(`/api/search?query=${encodeURIComponent(query)}`);
         results = data.Search;
         currentPage = 1;
         displayResults();
@@ -88,7 +88,8 @@ function displayResults() {
 // Détails d'une série (modal)
 async function showDetails(imdbID) {
     try {
-        const show = await fetchJSON(`https://www.omdbapi.com/?apikey=${OMDB_API_KEY}&i=${imdbID}&plot=full`);
+        const show = await fetchJSON(`/api/details?id=${imdbID}`);
+
 
         modalContent.innerHTML = `
             <button class="modal-close" onclick="closeModal()">&times;</button>
