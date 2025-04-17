@@ -11,7 +11,7 @@ Une application web moderne permettant de rechercher et découvrir des séries T
 ## Technologies Utilisées
 - Langage : JavaScript, CSS, HTML
 - Framework : NodeJs, Express
-- API F1 : OMDB 
+- API série : OMDB 
 
 ## Installation
 
