@@ -1,4 +1,3 @@
-const OMDB_API_KEY = 'be69aad';
 const resultsPerPage = 9;
 let results = [];
 let currentPage = 1;
@@ -32,7 +31,7 @@ async function fetchJSON(url) {
     const response = await fetch(url);
     if (!response.ok) throw new Error('Erreur réseau');
     const data = await response.json();
-    if (data.Error) throw new Error(data.Error);
+    if (data.error) throw new Error(data.error);
     return data;
 }
 
@@ -48,10 +47,8 @@ async function searchSeries() {
         showError('Veuillez entrer un terme de recherche');
         return;
     }
-
     try {
-        const data = await fetchJSON(`/api/search?query=${encodeURIComponent(query)}`);
-        results = data.Search;
+        results = await fetchJSON(`/api/search?query=${encodeURIComponent(query)}`);
         currentPage = 1;
         displayResults();
         updatePagination();
@@ -69,7 +66,6 @@ function displayResults() {
         resultsContainer.innerHTML = '<p class="no-results">Aucun résultat trouvé</p>';
         return;
     }
-
     const start = (currentPage - 1) * resultsPerPage;
     const paginatedResults = results.slice(start, start + resultsPerPage);
 
@@ -89,7 +85,6 @@ function displayResults() {
 async function showDetails(imdbID) {
     try {
         const show = await fetchJSON(`/api/details?id=${imdbID}`);
-
 
         modalContent.innerHTML = `
             <button class="modal-close" onclick="closeModal()">&times;</button>
@@ -125,7 +120,6 @@ function updatePagination() {
         paginationElement.innerHTML = '';
         return;
     }
-
     const totalPages = Math.ceil(results.length / resultsPerPage);
     paginationElement.innerHTML = `
         <button class="page-btn" onclick="changePage(${currentPage - 1})" ${currentPage === 1 ? 'disabled' : ''}>Précédent</button>
