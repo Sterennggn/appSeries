@@ -19,8 +19,8 @@ Une application web moderne permettant de rechercher et découvrir des séries T
 
 1. Clonez le repository :
 ```bash
-git clone [URL_DU_REPO]
-cd films
+git clone https://github.com/Sterennggn/fillms-a
+cd films-a
 ```
 
 2. Ouvrez le fichier `public/js/script.js` et assurez-vous que la clé API OMDB est configurée :
