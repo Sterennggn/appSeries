@@ -1,4 +1,4 @@
-# Séries - Site de Recherche de Séries
+# 🎬 Site de Recherche de Séries
 
 Une application web permettant de rechercher et découvrir des séries TV en utilisant l'API OMDB.
 
