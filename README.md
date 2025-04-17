@@ -6,19 +6,14 @@ Une application web moderne permettant de rechercher et découvrir des séries T
 
 - 🔍 Recherche de séries en temps réel
 - 🌙 Mode sombre/clair
-- 📱 Design responsive
 - 🎬 Détails complets des séries
-- 📄 Pagination des résultats
-- ⚡ Interface utilisateur fluide et moderne
 
 ## Technologies Utilisées
 
-- HTML5
-- CSS3 (Variables CSS, Flexbox, Grid)
-- JavaScript (ES6+)
+- HTML
+- CSS 
+- JavaScript
 - API OMDB
-- Font Awesome pour les icônes
-- Google Fonts (Poppins)
 
 ## Installation
 
@@ -64,19 +59,7 @@ public/
 - Gestion des erreurs
 - Affichage d'un spinner pendant le chargement
 
-### Interface
-- Design moderne et épuré
-- Animations fluides
-- Navigation intuitive
-- Adaptation automatique à tous les écrans
-
-### Mode Sombre
-- Persistance du thème choisi
-- Transition fluide entre les modes
-- Couleurs optimisées pour chaque thème
-
 ## Crédits
-
 - API : [OMDB API](https://www.omdbapi.com/)
 - Icônes : [Font Awesome](https://fontawesome.com/)
 - Police : [Google Fonts - Poppins](https://fonts.google.com/specimen/Poppins)
