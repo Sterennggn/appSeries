@@ -1,6 +1,6 @@
-# Films - Plateforme de Recherche de Séries
+# 🎬 appSeries
 
-Une application web moderne permettant de rechercher et découvrir des séries TV en utilisant l'API OMDB.
+Une application web permettant de rechercher et découvrir des séries TV en utilisant l'API OMDB.
 
 ## Fonctionnalités
 
@@ -9,18 +9,16 @@ Une application web moderne permettant de rechercher et découvrir des séries T
 - 🎬 Détails complets des séries
 
 ## Technologies Utilisées
-
-- HTML
-- CSS 
-- JavaScript
-- API OMDB
+- Langage : JavaScript, CSS, HTML
+- Framework : NodeJs, Express
+- API série : OMDB 
 
 ## Installation
 
 1. Clonez le repository :
 ```bash
-git clone [URL_DU_REPO]
-cd films
+git clone https://github.com/Sterennggn/appSeries
+cd appSeries
 ```
 
 2. Ouvrez le fichier `public/js/script.js` et assurez-vous que la clé API OMDB est configurée :
@@ -31,17 +29,6 @@ const OMDB_API_KEY = 'be69aad';
 3. Ouvrez votre navigateur et accédez à :
 ```
 http://localhost:8000
-```
-
-## Structure du Projet
-
-```
-public/
-├── css/
-│   └── style.css
-├── js/
-│   └── script.js
-└── index.html
 ```
 
 ## Utilisation
@@ -57,7 +44,6 @@ public/
 ### Recherche
 - Recherche instantanée
 - Gestion des erreurs
-- Affichage d'un spinner pendant le chargement
 
 ## Crédits
 - API : [OMDB API](https://www.omdbapi.com/)
