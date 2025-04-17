@@ -1,6 +1,6 @@
-# Films - Plateforme de Recherche de Séries
+# Séries - Site de Recherche de Séries
 
-Une application web moderne permettant de rechercher et découvrir des séries TV en utilisant l'API OMDB.
+Une application web permettant de rechercher et découvrir des séries TV en utilisant l'API OMDB.
 
 ## Fonctionnalités
 
