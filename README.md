@@ -33,17 +33,6 @@ const OMDB_API_KEY = 'be69aad';
 http://localhost:8000
 ```
 
-## Structure du Projet
-
-```
-public/
-├── css/
-│   └── style.css
-├── js/
-│   └── script.js
-└── index.html
-```
-
 ## Utilisation
 
 1. Entrez le nom d'une série dans la barre de recherche
@@ -57,7 +46,6 @@ public/
 ### Recherche
 - Recherche instantanée
 - Gestion des erreurs
-- Affichage d'un spinner pendant le chargement
 
 ## Crédits
 - API : [OMDB API](https://www.omdbapi.com/)
