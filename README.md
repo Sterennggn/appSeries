@@ -17,8 +17,8 @@ Une application web permettant de rechercher et découvrir des séries TV en uti
 
 1. Clonez le repository :
 ```bash
-git clone https://github.com/Sterennggn/fillms-a
-cd films-a
+git clone https://github.com/Sterennggn/appSeries
+cd appSeries
 ```
 
 2. Ouvrez le fichier `public/js/script.js` et assurez-vous que la clé API OMDB est configurée :
