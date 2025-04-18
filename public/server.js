@@ -12,12 +12,12 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static('public'));
 
-// Route pour la page d'accueil
+//Route pour la page d'accueil
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-// Route API pour rechercher des séries
+//Route API pour rechercher des séries
 app.get('/api/search', async (req, res) => {
     try {
         const { query } = req.query;
@@ -30,7 +30,7 @@ app.get('/api/search', async (req, res) => {
         if (data.Error) {
             return res.status(404).json({ error: data.Error });
         }
-        // Récupérer les détails pour chaque série
+        //Récupérer les détails pour chaque série
         const detailedResults = await Promise.all(
             data.Search.map(async (show) => {
                 const detailResponse = await fetch(`http://www.omdbapi.com/?apikey=${process.env.OMDB_API_KEY}&i=${show.imdbID}&plot=short`);
@@ -44,7 +44,7 @@ app.get('/api/search', async (req, res) => {
     }
 });
 
-// Route pour obtenir les détails d'une série
+//Route pour obtenir les détails d'une série
 app.get('/api/details', async (req, res) => {
     try {
         const { id } = req.query;
@@ -65,7 +65,7 @@ app.get('/api/details', async (req, res) => {
         res.status(500).json({ error: 'Erreur serveur' });
     }
 });
-// Démarrer le serveur
+
 app.listen(PORT, () => {
     console.log(`Serveur démarré sur http://localhost:${PORT}`);
 });

@@ -10,14 +10,14 @@ const modal = document.getElementById('modal');
 const modalContent = document.getElementById('modalContent');
 const themeToggle = document.getElementById('themeToggle');
 
-// Initialisation
+//Initialisation
 document.addEventListener('DOMContentLoaded', () => {
     closeModal();
     const savedTheme = localStorage.getItem('theme') || 'light';
     document.documentElement.setAttribute('data-theme', savedTheme);
 });
 
-// Thème clair/sombre
+//Thème clair/sombre
 themeToggle.addEventListener('click', () => {
     const html = document.documentElement;
     const currentTheme = html.getAttribute('data-theme');
@@ -26,7 +26,7 @@ themeToggle.addEventListener('click', () => {
     localStorage.setItem('theme', newTheme);
 });
 
-// Utilitaire : fetch avec gestion d’erreur
+//fetch avec gestion d’erreur
 async function fetchJSON(url) {
     const response = await fetch(url);
     if (!response.ok) throw new Error('Erreur réseau');
@@ -35,7 +35,6 @@ async function fetchJSON(url) {
     return data;
 }
 
-// Utilitaire : image avec placeholder
 function getPosterImage(url) {
     return url !== 'N/A' ? url : 'https://via.placeholder.com/300x450?text=No+Image';
 }
@@ -81,7 +80,7 @@ function displayResults() {
     `).join('');
 }
 
-// Détails d'une série (modal)
+// Détails d'une série
 async function showDetails(imdbID) {
     try {
         const show = await fetchJSON(`/api/details?id=${imdbID}`);
@@ -155,7 +154,7 @@ function closeModal() {
 // Événements
 searchButton.addEventListener('click', searchSeries);
 searchInput.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') searchSeries();
+    if (e.key === 'Entrer') searchSeries();
 });
 modal.addEventListener('click', (e) => {
     if (e.target === modal) closeModal();
