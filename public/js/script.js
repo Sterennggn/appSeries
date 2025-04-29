@@ -10,13 +10,6 @@ const modal = document.getElementById('modal');
 const modalContent = document.getElementById('modalContent');
 const themeToggle = document.getElementById('themeToggle');
 
-//Initialisation
-document.addEventListener('DOMContentLoaded', () => {
-    closeModal();
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    document.documentElement.setAttribute('data-theme', savedTheme);
-});
-
 //Thème clair/sombre
 themeToggle.addEventListener('click', () => {
     const html = document.documentElement;
