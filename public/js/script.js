@@ -1,4 +1,4 @@
-const resultsPerPage = 9;
+const resultsPerPage = 15;
 let results = [];
 let currentPage = 1;
 
@@ -77,7 +77,6 @@ function displayResults() {
 async function showDetails(imdbID) {
     try {
         const show = await fetchJSON(`/api/details?id=${imdbID}`);
-
         modalContent.innerHTML = `
             <button class="modal-close" onclick="closeModal()">&times;</button>
             <div class="modal-header">
@@ -138,7 +137,7 @@ function showError(message) {
     `;
 }
 
-// Fermeture modal
+// Fermeture page
 function closeModal() {
     modal.classList.remove('active');
     document.body.style.overflow = '';
