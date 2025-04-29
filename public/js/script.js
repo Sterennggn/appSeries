@@ -1,11 +1,9 @@
 const resultsPerPage = 15;
 let results = [];
-let currentPage = 1;
 
 const searchInput = document.getElementById('searchInput');
 const searchButton = document.getElementById('searchButton');
 const resultsContainer = document.getElementById('resultsContainer');
-const paginationElement = document.getElementById('pagination');
 const modal = document.getElementById('modal');
 const modalContent = document.getElementById('modalContent');
 const themeToggle = document.getElementById('themeToggle');
@@ -41,14 +39,11 @@ async function searchSeries() {
     }
     try {
         results = await fetchJSON(`/api/search?query=${encodeURIComponent(query)}`);
-        currentPage = 1;
         displayResults();
-        updatePagination();
     } catch (error) {
         showError(error.message);
         results = [];
         displayResults();
-        updatePagination();
     }
 }
 
@@ -58,10 +53,7 @@ function displayResults() {
         resultsContainer.innerHTML = '<p class="no-results">Aucun résultat trouvé</p>';
         return;
     }
-    const start = (currentPage - 1) * resultsPerPage;
-    const paginatedResults = results.slice(start, start + resultsPerPage);
-
-    resultsContainer.innerHTML = paginatedResults.map(show => `
+    resultsContainer.innerHTML = results.map(show => `
         <div class="show-card">
             <img src="${getPosterImage(show.Poster)}" alt="${show.Title}" loading="lazy">
             <div class="show-info">
@@ -104,29 +96,6 @@ async function showDetails(imdbID) {
         showError(error.message);
     }
 }
-
-// Pagination
-function updatePagination() {
-    if (!results.length) {
-        paginationElement.innerHTML = '';
-        return;
-    }
-    const totalPages = Math.ceil(results.length / resultsPerPage);
-    paginationElement.innerHTML = `
-        <button class="page-btn" onclick="changePage(${currentPage - 1})" ${currentPage === 1 ? 'disabled' : ''}>Précédent</button>
-        <span>Page ${currentPage} sur ${totalPages}</span>
-        <button class="page-btn" onclick="changePage(${currentPage + 1})" ${currentPage === totalPages ? 'disabled' : ''}>Suivant</button>
-    `;
-}
-
-function changePage(page) {
-    if (page < 1 || page > Math.ceil(results.length / resultsPerPage)) return;
-    currentPage = page;
-    displayResults();
-    updatePagination();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
 // Erreur
 function showError(message) {
     resultsContainer.innerHTML = `
@@ -136,8 +105,7 @@ function showError(message) {
         </div>
     `;
 }
-
-// Fermeture page
+// Fermeture page (modal)
 function closeModal() {
     modal.classList.remove('active');
     document.body.style.overflow = '';
@@ -145,9 +113,7 @@ function closeModal() {
 
 // Événements
 searchButton.addEventListener('click', searchSeries);
-searchInput.addEventListener('keypress', (e) => {
-    if (e.key === 'Entrer') searchSeries();
-});
+
 modal.addEventListener('click', (e) => {
     if (e.target === modal) closeModal();
 });
